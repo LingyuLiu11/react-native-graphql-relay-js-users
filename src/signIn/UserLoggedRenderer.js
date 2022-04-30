@@ -14,6 +14,8 @@ const UserLoggedRenderer = () => {
     return (
       <View style={{ marginTop: 15, alignItems: "center" }}>
         <Text>User {user?.username || user?.email} logged</Text>
+        <Text>Created: {user?.createdAt} </Text>
+        <Text>Updated: {user?.updatedAt} </Text>
       </View>
     );
   };

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import environment from "../../relay/environment";
+import React, { useState, useEffect } from "react";
+import environment, { getSessionToken } from "../../relay/environment";
 import { FormikProvider, useFormik } from "formik";
 import { Button, Text, TextInput, View, TouchableOpacity } from "react-native";
 
@@ -12,6 +12,13 @@ import Styles from "../../Style";
 
 const SignIn = () => {
   const [sessionToken, setSessionToken] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      const sT = await getSessionToken();
+      setSessionToken(sT);
+    })();
+  }, []);
 
   const handleLogout = async () => {
     LogOutMutation.commit({
@@ -50,6 +57,7 @@ const SignIn = () => {
 
         if (sessionToken !== null) {
           setSessionToken(sessionToken);
+          // setUserLogged(user);
           await AsyncStorage.setItem("sessionToken", sessionToken);
           return;
         }

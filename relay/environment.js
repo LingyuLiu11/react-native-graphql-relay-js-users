@@ -27,8 +27,8 @@ const fetchQuery = async (request, variables) => {
   const headers = {
     Accept: "application/json",
     "Content-type": "application/json",
-    "X-Parse-Application-Id": "X-Parse-Application-Id",
-    "X-Parse-Client-Key": "X-Parse-Client-Key",
+    "X-Parse-Application-Id": "tVmwKuouk2tVvnYSRPcSAUEnslwoTddNJP4A9cs8",
+    "X-Parse-Client-Key": "xE7dG6JQSjCxinNVDy5GWFWsqlX7YK5Fy9Nl7RUj",
     ...(await getToken()),
   };
 
